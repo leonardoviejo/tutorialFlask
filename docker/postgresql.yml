@@ -1,0 +1,19 @@
+version: "3.5"
+services:
+  db_tutorialflask:
+    image: postgres:10
+    ports:
+      - 5032:5432/tcp
+    volumes:
+      - /srv/docker/tutorialflask/postgresql/data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: tutorialflask
+      POSTGRES_USER: tutorialflask
+      POSTGRES_PASSWORD: tutorialflask
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8032:8080
+
